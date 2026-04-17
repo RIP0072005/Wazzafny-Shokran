@@ -1,0 +1,83 @@
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 50%, rgba(108,62,232,0.15) 0%, transparent 60%), var(--bg-dark);
+  padding: 120px 0 60px;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.hero-orb-1 { width: 500px; height: 500px; top: -100px; right: -100px; background: rgba(108,62,232,0.2); }
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 60px 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: var(--primary-light);
+  margin-bottom: 15px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  display: block;
+}
+
+/* Featured Jobs Grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.course-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover { transform: translateY(-10px); }
+
+.course-cover {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.cover-purple { background: linear-gradient(135deg, #6c3ee8, #a855f7); }
+.cover-blue { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+.cover-green { background: linear-gradient(135deg, #10b981, #34d399); }
+
+.course-body { padding: 20px; }

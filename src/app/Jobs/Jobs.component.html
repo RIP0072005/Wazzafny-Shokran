@@ -1,0 +1,72 @@
+<div class="courses-page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>استكشف <span class="gradient-text">فرص العمل</span></h1>
+      <p>ابحث عن وظيفتك الأولى من بين مئات الفرص المتاحة لحديثي التخرج</p>
+    </div>
+  </section>
+
+  <section class="courses-section">
+    <div class="container">
+      <div class="courses-layout">
+        <aside class="filters-sidebar">
+          <div class="filter-card">
+            <h3><i class="fas fa-search"></i> البحث</h3>
+            <input type="text" class="form-control search-input" placeholder="وظيفة أو شركة..." [(ngModel)]="searchQuery" />
+          </div>
+
+          <div class="filter-card">
+            <h3><i class="fas fa-layer-group"></i> التخصص</h3>
+            <ul class="filter-list">
+              <li *ngFor="let cat of categories" [class.active]="selectedCategory === cat" (click)="selectedCategory = cat">
+                <span>{{ cat }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="filter-card">
+            <h3><i class="fas fa-map-marker-alt"></i> مكان العمل</h3>
+            <ul class="filter-list">
+              <li *ngFor="let type of locationTypes" [class.active]="selectedType === type" (click)="selectedType = type">
+                <span>{{ type }}</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="courses-main">
+          <div class="results-header">
+            <p>تم العثور على <strong>{{ filteredJobs.length }}</strong> وظيفة</p>
+          </div>
+
+          <div class="grid" *ngIf="filteredJobs.length > 0; else noResults">
+            <div class="course-card card" *ngFor="let j of filteredJobs">
+              <div class="course-cover" [ngClass]="'cover-' + j.color">
+                <i [class]="j.icon"></i>
+              </div>
+              <div class="course-body">
+                <div class="top-row">
+                  <span class="badge badge-purple">{{ j.locationType }}</span>
+                  <span class="rating"><i class="fas fa-map-marker-alt"></i> {{ j.location }}</span>
+                </div>
+                <h3>{{ j.title }}</h3>
+                <p class="teacher-name"><i class="fas fa-building"></i> {{ j.company }}</p>
+                <div class="course-footer">
+                  <span class="price">{{ j.salary | number }} ج.م</span>
+                  <a routerLink="/register" class="btn btn-primary enroll-btn">تقديم الآن</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ng-template #noResults>
+            <div class="no-results">
+              <i class="fas fa-search"></i>
+              <p>لا توجد وظائف تطابق بحثك</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

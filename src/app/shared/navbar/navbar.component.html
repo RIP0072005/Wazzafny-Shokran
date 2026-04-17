@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="container navbar-content">
+    <a routerLink="/" class="logo">
+      <span class="gradient-text">R2</span> وظفني
+    </a>
+    
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">الرئيسية</a>
+      </li>
+      <li>
+        <a routerLink="/jobs" routerLinkActive="active">الوظائف</a>
+      </li>
+      <li>
+        <a routerLink="/companies" routerLinkActive="active">الشركات</a>
+      </li>
+      <li>
+        <a routerLink="/cv-builder" routerLinkActive="active">منشئ CV</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <a routerLink="/register" class="btn btn-outline">دخول / تسجيل</a>
+      <a routerLink="/post-job" class="btn btn-primary">أعلن عن وظيفة</a>
+    </div>
+  </div>
+</nav>

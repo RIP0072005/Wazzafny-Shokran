@@ -1,0 +1,121 @@
+/* تصميم النافبار الثابتة مع تأثير الزجاج */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(15, 10, 30, 0.8); /* لون داكن شفاف */
+  backdrop-filter: blur(15px); /* تأثير التمويه */
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(108, 62, 232, 0.2);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* اللوجو */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6c3ee8, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* الروابط */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #a855f7;
+}
+
+/* خط سفلي للرابط النشط */
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #6c3ee8, #a855f7);
+  border-radius: 2px;
+}
+
+/* الأزرار */
+.nav-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.3s all;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #a855f7;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6c3ee8, #a855f7);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(108, 62, 232, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 62, 232, 0.5);
+}
+
+/* التجاوب مع الموبايل */
+@media (max-width: 992px) {
+  .nav-links { display: none; } /* يفضل عمل Drawer للموبايل لاحقاً */
+  .logo { font-size: 1.5rem; }
+}

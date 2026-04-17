@@ -1,0 +1,103 @@
+<div class="builder-page">
+  <div class="container-fluid">
+    <div class="header-title">
+      <h2>منشئ <span class="gradient-text">السيرة الذاتية</span></h2>
+      <p>أدخل بياناتك وشاهد سيرتك الذاتية تتشكل أمامك في نفس اللحظة</p>
+    </div>
+
+    <div class="builder-layout">
+      <div class="form-section card">
+        <h3 class="section-heading"><i class="fas fa-user-edit"></i> البيانات الأساسية</h3>
+        
+        <div class="form-group">
+          <label>الاسم الكامل</label>
+          <input type="text" class="form-control" placeholder="مثال: أحمد محمد" [(ngModel)]="cvData.fullName">
+        </div>
+        
+        <div class="form-group">
+          <label>المسمى الوظيفي</label>
+          <input type="text" class="form-control" placeholder="مثال: Frontend Developer" [(ngModel)]="cvData.jobTitle">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" class="form-control" placeholder="email@example.com" [(ngModel)]="cvData.email">
+          </div>
+          <div class="form-group">
+            <label>رقم الهاتف</label>
+            <input type="text" class="form-control" placeholder="01xxxxxxxxx" [(ngModel)]="cvData.phone">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>نبذة عنك (الهدف المهني)</label>
+          <textarea class="form-control" rows="3" placeholder="اكتب نبذة مختصرة عن مهاراتك وطموحك..." [(ngModel)]="cvData.summary"></textarea>
+        </div>
+
+        <h3 class="section-heading mt-4"><i class="fas fa-graduation-cap"></i> التعليم</h3>
+        <div class="form-group">
+          <label>الجامعة / الكلية</label>
+          <input type="text" class="form-control" placeholder="مثال: كلية الهندسة الإلكترونية" [(ngModel)]="cvData.university">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>التقدير</label>
+            <input type="text" class="form-control" placeholder="جيد جداً" [(ngModel)]="cvData.degree">
+          </div>
+          <div class="form-group">
+            <label>سنة التخرج</label>
+            <input type="text" class="form-control" placeholder="2026" [(ngModel)]="cvData.graduationYear">
+          </div>
+        </div>
+
+        <h3 class="section-heading mt-4"><i class="fas fa-tools"></i> المهارات</h3>
+        <div class="form-group">
+          <label>المهارات التقنية والشخصية</label>
+          <textarea class="form-control" rows="3" placeholder="Angular, HTML, CSS, Problem Solving..." [(ngModel)]="cvData.skills"></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-full mt-4" (click)="downloadPDF()">
+          <i class="fas fa-download"></i> تحميل السيرة الذاتية (PDF)
+        </button>
+      </div>
+
+      <div class="preview-section">
+        <div class="a4-paper" id="cv-document">
+          <div class="cv-header">
+            <h1 class="cv-name">{{ cvData.fullName || 'الاسم الكامل' }}</h1>
+            <h3 class="cv-title">{{ cvData.jobTitle || 'المسمى الوظيفي' }}</h3>
+            <div class="cv-contact">
+              <span *ngIf="cvData.email"><i class="fas fa-envelope"></i> {{ cvData.email }}</span>
+              <span *ngIf="cvData.phone"><i class="fas fa-phone"></i> {{ cvData.phone }}</span>
+            </div>
+          </div>
+
+          <div class="cv-body">
+            <div class="cv-section" *ngIf="cvData.summary">
+              <h4 class="cv-section-title">الملف الشخصي</h4>
+              <p>{{ cvData.summary }}</p>
+            </div>
+
+            <div class="cv-section" *ngIf="cvData.university">
+              <h4 class="cv-section-title">التعليم</h4>
+              <div class="edu-item">
+                <div class="edu-top">
+                  <strong>{{ cvData.university }}</strong>
+                  <span class="edu-year">{{ cvData.graduationYear }}</span>
+                </div>
+                <p>التقدير/الدرجة: {{ cvData.degree }}</p>
+              </div>
+            </div>
+
+            <div class="cv-section" *ngIf="cvData.skills">
+              <h4 class="cv-section-title">المهارات</h4>
+              <p class="skills-text">{{ cvData.skills }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

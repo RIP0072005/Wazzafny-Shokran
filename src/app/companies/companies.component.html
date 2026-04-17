@@ -1,0 +1,40 @@
+<div class="companies-page">
+  <section class="page-hero">
+    <div class="container">
+      <h1>دليل <span class="gradient-text">الشركات</span></h1>
+      <p>اكتشف أفضل الشركات التي تبحث عن مواهب شابة وتعرف على بيئة العمل لديهم</p>
+    </div>
+  </section>
+
+  <section class="companies-section">
+    <div class="container">
+      <div class="companies-grid">
+        <div class="company-card card" *ngFor="let c of companies">
+          
+          <div class="company-header">
+            <div class="company-logo" [ngClass]="'logo-' + c.color">
+              <i [class]="c.icon"></i>
+            </div>
+            <div class="company-title">
+              <h3>{{ c.name }}</h3>
+              <span class="industry-badge">{{ c.industry }}</span>
+            </div>
+          </div>
+
+          <div class="company-body">
+            <p class="description">{{ c.description }}</p>
+            <div class="company-meta">
+              <span><i class="fas fa-map-marker-alt"></i> {{ c.location }}</span>
+              <span class="jobs-count"><i class="fas fa-briefcase"></i> {{ c.openJobs }} وظائف متاحة</span>
+            </div>
+          </div>
+
+          <div class="company-footer">
+            <a routerLink="/jobs" class="btn btn-outline-primary btn-full">عرض الوظائف المتاحة</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

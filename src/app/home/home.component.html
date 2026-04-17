@@ -1,0 +1,42 @@
+<div class="home-page">
+  <section class="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-rocket"></i> <span>منصة توظيف حديثي التخرج</span></div>
+        <h1 class="hero-title">مستقبلك المهني <span class="gradient-text">يبدأ هنا</span></h1>
+        <p class="hero-subtitle">نربطك مباشرة بأصحاب الأعمال ونساعدك في بناء سيرة ذاتية احترافية للحصول على وظيفتك الأولى.</p>
+        <div class="hero-actions">
+          <a routerLink="/jobs" class="btn btn-primary"><i class="fas fa-briefcase"></i> تصفح الوظائف</a>
+          <a routerLink="/register" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> ابنِ سيرتك الذاتية</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="visual-card main-card animate-float">
+          <div class="card-header">
+            <div class="subject-icon purple"><i class="fas fa-user-tie"></i></div>
+            <div><p class="card-title-text">طلب توظيف جديد</p><p class="card-sub">من شركة R2 Tech</p></div>
+          </div>
+          <div class="progress-section">
+            <div class="progress-label"><span>نسبة المطابقة الذكية</span><span>90%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+          </div>
+          <div class="card-stats"><span><i class="fas fa-check-circle"></i> مهاراتك مناسبة</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" *ngFor="let s of stats">
+          <div class="stat-icon"><i [class]="s.icon"></i></div>
+          <div class="stat-value">{{ s.value }}</div>
+          <div class="stat-label">{{ s.label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
