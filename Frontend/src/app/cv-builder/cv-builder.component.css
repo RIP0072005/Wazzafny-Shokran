@@ -1,0 +1,129 @@
+.builder-page {
+  padding: 120px 20px 60px;
+  min-height: 100vh;
+}
+
+.header-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-title h2 { font-size: 2.5rem; font-weight: 800; }
+
+.builder-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Form Styles */
+.form-section {
+  padding: 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.section-heading {
+  font-size: 1.1rem;
+  color: var(--primary-light);
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.mt-4 { margin-top: 1.5rem; }
+.btn-full { width: 100%; justify-content: center; padding: 12px; font-size: 1.1rem; }
+
+/* A4 Paper Preview Styles */
+.preview-section {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.a4-paper {
+  background: white;
+  width: 100%;
+  max-width: 210mm; /* عرض ورقة A4 */
+  min-height: 297mm; /* طول ورقة A4 */
+  padding: 40mm 20mm;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  color: #333; /* لون الخط أسود عشان القراءة */
+  font-family: 'Cairo', sans-serif;
+  border-radius: 4px;
+}
+
+.cv-header {
+  border-bottom: 2px solid #6c3ee8;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.cv-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
+.cv-title {
+  font-size: 1.2rem;
+  color: #6c3ee8;
+  margin-bottom: 15px;
+}
+
+.cv-contact {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.cv-contact span { display: flex; align-items: center; gap: 8px; }
+
+.cv-section { margin-bottom: 25px; }
+
+.cv-section-title {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.edu-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.edu-year { color: #888; font-size: 0.9rem; }
+.skills-text { white-space: pre-line; line-height: 1.8; }
+
+/* إخفاء كل حاجة وقت الطباعة ما عدا الـ CV */
+@media print {
+  body * { visibility: hidden; }
+  #cv-document, #cv-document * { visibility: visible; }
+  #cv-document {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .builder-layout { grid-template-columns: 1fr; }
+  .preview-section { position: static; overflow-x: auto; }
+}
