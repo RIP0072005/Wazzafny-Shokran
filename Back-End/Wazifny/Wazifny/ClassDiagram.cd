@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Wazifny.Models.Application">
+    <Position X="12.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAEAAACAAAAAAAAAgAAAAACAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\Application.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Graduate" />
+      <Property Name="Job" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.Employer">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAgAAEAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Jobs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.Graduate">
+    <Position X="21.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAAAAABAAAAAAAAAAAAAAAAAAAAAAAABgAAAAQAA=</HashCode>
+      <FileName>Models\Graduate.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Applications" />
+      <Property Name="Skills" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.Job">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGACAAABAgIEAAAAYAAAAAAABAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\job.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Employer" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Applications" />
+      <Property Name="RequiredSkills" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.Message">
+    <Position X="17.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAEAAAAACFAAAAAAAABAAIAAA=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Receiver" />
+      <Property Name="Sender" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.Notification">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAgAEAAACAAEAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Notification.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.Skill">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\Skill.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Graduates" />
+      <Property Name="Jobs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Wazifny.Models.User">
+    <Position X="13.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAgAIAAEAAAIAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
