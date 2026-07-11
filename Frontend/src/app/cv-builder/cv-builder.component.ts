@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // مهم جداً عشان الـ ngModel يشتغل
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-cv-builder',
   standalone: true,
-  imports: [CommonModule, FormsModule], // ضفنا الـ FormsModule هنا
+  imports: [CommonModule, FormsModule],
   templateUrl: './cv-builder.component.html',
   styleUrls: ['./cv-builder.component.css']
 })
 export class CvBuilderComponent {
-  // الأوبجكت اللي هيشيل كل بيانات الـ CV
+  private http = inject(HttpClient);
+  
   cvData = {
     fullName: '',
     jobTitle: '',
@@ -23,10 +26,28 @@ export class CvBuilderComponent {
     skills: ''
   };
 
-  // دالة مبدئية لطباعة الـ CV أو تحويله لـ PDF
+  // حفظ البيانات في الداتابيز
+  saveCv() {
+    const currentUserId = localStorage.getItem('userId');
+    
+    if (!currentUserId) {
+      alert('برجاء إنشاء حساب أولاً لحفظ السيرة الذاتية!');
+      return;
+    }
+
+    // هنضيف الـ userId مع بيانات الـ CV
+    const payload = {
+      ...this.cvData,
+      userId: Number(currentUserId) 
+    };
+
+    this.http.post(`${environment.apiUrl}/resumes`, payload).subscribe({
+      next: () => alert('CV Saved Successfully!'),
+      error: (err) => console.error('Error saving CV:', err)
+    });
+  }
+
   downloadPDF() {
-    window.print(); 
-    // ملاحظة: دي طريقة سريعة بتفتح شاشة الطباعة وتقدر تختار منها (Save as PDF).
-    // لو حابب حاجة بروفيشنال أكتر، هنستخدم مكتبة زي html2pdf.js بعدين.
+    window.print();
   }
 }

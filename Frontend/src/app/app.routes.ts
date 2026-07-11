@@ -5,10 +5,12 @@ import { CompaniesComponent } from './companies/companies.component'; // الس�
 import { CvBuilderComponent } from './cv-builder/cv-builder.component';
 import { RegisterComponent } from './register/register.component';
 import { PostJobComponent } from './post-job/post-job.component';
+import { JobDetailsComponent } from './Jobs/job-details/job-details.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'jobs', component:JobsComponent },
+  { path: 'jobs/:id', component: JobDetailsComponent },
   { path: 'post-job', component: PostJobComponent },
   { path: 'companies', component: CompaniesComponent }, // المسار لصفحة الشركات
   { path: 'cv-builder', component: CvBuilderComponent },

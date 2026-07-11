@@ -3,40 +3,54 @@
     <h2><i class="fas fa-plus-circle"></i> إضافة فرصة عمل جديدة</h2>
     <p>أدخل تفاصيل الوظيفة لجذب أفضل الخريجين</p>
 
-    <form class="mt-4">
+    <form class="mt-4" (ngSubmit)="onSubmit()">
+      
       <div class="form-group">
         <label>المسمى الوظيفي</label>
-        <input type="text" class="form-control" placeholder="مثال: Junior Web Developer">
+        <input type="text" name="title" [(ngModel)]="jobObj.title" class="form-control" placeholder="مثال: Junior Web Developer" required>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label>القسم / التخصص</label>
-          <select class="form-control">
-            <option>برمجة</option>
-            <option>تصميم</option>
-            <option>تسويق</option>
-            <option>إدارة</option>
+          <select name="categoryId" [(ngModel)]="selectedCategoryId" class="form-control" required>
+            <option value="0" disabled>-- اختر التخصص --</option>
+            <option *ngFor="let cat of categories" [value]="cat.id">
+              {{ cat.nameAr }}
+            </option>
           </select>
         </div>
+        
         <div class="form-group">
           <label>نوع العمل</label>
-          <select class="form-control">
-            <option>دوام كامل</option>
-            <option>عن بعد</option>
-            <option>تدريب (Internship)</option>
+          <select name="locationType" [(ngModel)]="jobObj.locationType" class="form-control">
+            <option value="دوام كامل">دوام كامل</option>
+            <option value="في الموقع">في الموقع</option>
+            <option value="عن بعد">عن بعد</option>
+            <option value="تدريب">تدريب</option>
           </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>مقر العمل (المدينة)</label>
+          <input type="text" name="location" [(ngModel)]="jobObj.location" class="form-control" placeholder="مثال: القاهرة، مصر" required>
+        </div>
+        <div class="form-group">
+          <label>الراتب المتوقع</label>
+          <input type="number" name="salary" [(ngModel)]="jobObj.salary" class="form-control" placeholder="مثال: 12000" required>
         </div>
       </div>
 
       <div class="form-group">
         <label>المهارات المطلوبة</label>
-        <textarea class="form-control" rows="3" placeholder="أدخل المهارات وافصل بينها بفاصلة..."></textarea>
+        <textarea name="skills" [(ngModel)]="jobObj.skills" class="form-control" rows="3" placeholder="أدخل المهارات وافصل بينها بفاصلة..."></textarea>
       </div>
 
       <div class="form-group">
         <label>وصف الوظيفة</label>
-        <textarea class="form-control" rows="5" placeholder="اكتب تفاصيل الوظيفة والمسؤوليات..."></textarea>
+        <textarea name="description" [(ngModel)]="jobObj.description" class="form-control" rows="5" placeholder="اكتب تفاصيل الوظيفة والمسؤوليات..." required></textarea>
       </div>
 
       <button type="submit" class="btn btn-primary btn-full">نشر الوظيفة الآن</button>
