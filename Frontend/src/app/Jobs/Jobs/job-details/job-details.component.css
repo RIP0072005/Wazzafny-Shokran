@@ -1,0 +1,18 @@
+.job-details-page {
+  margin-top: 50px;
+}
+
+.bg-purple {
+  background-color: #6f42c1; /* نفس درجة الموف اللي بتستخدمها */
+  color: white;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+h3 {
+  color: #333;
+  margin-top: 20px;
+}
