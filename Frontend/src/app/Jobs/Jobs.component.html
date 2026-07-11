@@ -41,8 +41,8 @@
 
           <div class="grid" *ngIf="filteredJobs.length > 0; else noResults">
             <div class="course-card card" *ngFor="let j of filteredJobs">
-              <div class="course-cover" [ngClass]="'cover-' + j.color">
-                <i [class]="j.icon"></i>
+              <div class="course-cover cover-purple">
+                <i class="fas fa-briefcase"></i>
               </div>
               <div class="course-body">
                 <div class="top-row">
@@ -50,10 +50,10 @@
                   <span class="rating"><i class="fas fa-map-marker-alt"></i> {{ j.location }}</span>
                 </div>
                 <h3>{{ j.title }}</h3>
-                <p class="teacher-name"><i class="fas fa-building"></i> {{ j.company }}</p>
+                <p class="teacher-name"><i class="fas fa-building"></i> {{ j.companyName }}</p>
                 <div class="course-footer">
                   <span class="price">{{ j.salary | number }} ج.م</span>
-                  <a routerLink="/register" class="btn btn-primary enroll-btn">تقديم الآن</a>
+                  <a [routerLink]="['/jobs', j.id]" class="btn btn-primary enroll-btn">عرض التفاصيل</a>
                 </div>
               </div>
             </div>
